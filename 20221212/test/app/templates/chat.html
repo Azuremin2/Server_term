@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+
+        const socket = io.connect("https://8da7-182-215-54-102.jp.ngrok.io")
+
+        // 현재시간 호출 클래스
+        const date = new Date();
+
+
+        $(document).ready(function () {
+            // const socket = io.connect("http://localhost:5000")
+            socket.on('connect', function () {
+                socket.send("User connected!");
+            });
+
+            socket.on('message', function (data) {
+                $('.message').append($('<p>').text(data));
+            });
+
+            // $('#sendBtn').on('click', function);
+        })
+
+        async function temp() {
+            const results = await axios.post('https://8da7-182-215-54-102.jp.ngrok.io/chat_save', {
+                username: $('#username').val(),
+                message: $('#message').val()
+                },
+                {withCredentials: true}
+            )
+
+            $('.message').append($('<p>').text(results.data))
+
+            await socket.send($('#username').val() + ': ' + $('#message').val());
+
+            $('#message').val('');
+        }
+
+    </script>
+
+</head>
+
+<body style="text-align: center; font-family: Arial, serif; font-size: 14pt">
+<header id="header">
+    <input type="text" id="username" value="{{name}}" readonly=readonly placeholder="Username" required>
+<input type="text" id="message" placeholder="Message" required>
+<button id="sendBtn" onclick="temp()">Send</button>
+</header>
+
+<div class="message" style="margin: 0 auto; width: 60%; text-align: left; min-height: 300px">
+
+</div>
+
+<!-- 챗봇 -->
+<div class="container">
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png"
+                         alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">AI Chat service</h4>
+{#                    <p class="chatbox__description--header">Hi. My name is Sam. How can I help you?</p>#}
+                    <p class="chatbox__description--header">안녕. 나는 연수AI입니다. 무엇을 도와드릴까요?</p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="메세지를 입력하세요">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}"/></button>
+        </div>
+    </div>
+</div>
+<script>
+    $SCRIPT_ROOT = {{request.script_root|tojson }};
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+<!-- 챗봇 -->
+
+<!--<form action="{{url_for('chat_log')}}", method="post">-->
+<!--    <button type="text" id="chatlog">로그</button>-->
+<!--</form>-->
+
+</body>
+</html>

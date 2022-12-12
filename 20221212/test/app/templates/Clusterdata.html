@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    h1{
+        color: mediumpurple;
+        font-size: 48px;
+        text-align: center;
+    }
+    body{
+        color: mediumpurple;
+         font-size: 24px;
+    }
+
+    .in1{
+    width: 200px;
+    height: 48px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+}
+    .in2{
+    width: 50px;
+    height: 48px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+    color: white;
+    background-color: mediumpurple;
+    }
+
+    #div2{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    position: absolute;
+
+}
+    *{
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>군집</title>
+</head>
+<body>
+
+<div id="div2" class="wrapper2">
+<h1>- 군집 -</h1><hr style="border:solid 10px mediumpurple">
+<p>
+<form action="{{ url_for('main.cluster') }}" method="post" >
+
+{#    불러온 데이터 <input type="text" class="in1" name="data1"><p>#}
+{#    결측치 발견 <input type="text" class="in1" name="data2"><p>#}
+{#    결측값을 평균값으로 대체 <input type="in1" class="in1" name="data3"><p>#}
+
+    <img src="{{ url_for('static', filename='img/before_distribute.png')}}" class="algorithmimg1" alt="정규분포로 변환 전 그래프" width="300" height="300"><p>
+
+    제목 : <input type="text" class="in1" name="title"><p>
+    범례 : <input type="text" class="in1" name="label" value="평균기온/합계강수량" placeholder="평균기온/합계강수량" name="sub" disabled><p>
+    x라벨 : <input type="text" class="in1" name="x" value="평균기온" placeholder="평균기온" disabled><p>
+    y라벨 : <input type="text" class="in1" name="y" value="합계 강수량" placeholder="합계 강수량"  disabled><p>
+
+    색상
+        <input type="radio" name="color"  value="red">red
+        <input type="radio" name="color" value="blue">blue
+        <input type="radio" name="color" value="green">green
+    <p>
+
+    <input type="submit" value="입력" class="in2"><p>
+
+    <img src="{{ url_for('static', filename='img/cluster_result.png')}}" class="cluster_result" alt="정규분포 변환 후 그래프" width="300" height="100">
+</form>
+
+<form action="{{url_for('clust')}}" method="POST">
+    <button type="submit">활용</button>
+</form>
+
+</div>
+
+
+</body>
+</html>

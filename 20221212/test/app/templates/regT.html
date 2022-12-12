@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    h1{
+        font-size: 48px;
+    }
+    hr{
+        background-color: mediumpurple;
+        height: 5px;
+    }
+    .b{
+            width: 100px;
+            height: 50px;
+            box-sizing: border-box;
+            margin-bottom:16px;
+            border-radius: 6px;
+            color:white;
+            background-color: mediumpurple;
+        }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>회귀 이론</title>
+</head>
+<body>
+    <form action="{{ url_for('reg.reginfo') }}" method="post" target="_view">
+        <button type="submit" class="b">회귀란?</button>
+    </form>
+    <form action="{{ url_for('reg.reg1') }}" method="post" target="_view">
+        <button type="submit" class="b">단항선형회귀</button>
+    </form>
+    <form action="{{ url_for('reg.reg2') }}" method="post" target="_view">
+        <button type="submit" class="b">다항선형회귀1</button>
+    </form>
+    <form action="{{ url_for('reg.reg3') }}" method="post" target="_view">
+        <button type="submit" class="b">다항선형회귀2</button>
+    </form>
+
+<div style="text-align: center">
+    <h1>회귀</h1>
+
+    <hr>
+    <h2>회귀 모델</h2>
+    <img src="{{ url_for('static', filename='img/reg.png')}}" width="500" height="300"><p>
+    X의 수에 따라서 1개일 경우 단순, 2개 이상일 경우 다중선형회귀가 있다.<p>
+    X 변수와 Y 변수의 관계가 선형성 여부에 따라 선형인지, 비선형인지 구분한다.<p>
+    <img src="{{ url_for('static', filename='img/reg1.png')}}" width="200" height="200">
+    <img src="{{ url_for('static', filename='img/reg2.png')}}" width="200" height="200"><p>
+    <img src="{{ url_for('static', filename='img/reg3.png')}}" width="250" height="150">
+    <img src="{{ url_for('static', filename='img/reg4.png')}}" width="250" height="150"><p>
+
+    {#nava-bar 생성하기#}
+
+</div>
+
+</body>
+</html>

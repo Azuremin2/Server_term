@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <title>군집</title>
+    <style>
+    h1{
+        color: mediumpurple;
+        font-size: 48px;
+        text-align: center;
+    }
+    body{
+        color: mediumpurple;
+         font-size: 24px;
+    }
+    .in1{
+    width: 200px;
+    height: 48px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+}
+    .in2{
+    width: 50px;
+    height: 48px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+        color: white;
+        background-color: mediumpurple;
+    }
+    </style>
+</head>
+<body>
+
+<h1>- 군집 -</h1>
+<hr style="border: solid 10px mediumpurple">
+<fieldset style="text-align: center; border: none">
+
+    <img src="{{ url_for('static', filename='img/distribute.png')}}" class="algorithmimg1" alt="정규분포로 변환 전 후 그래프" width="300" height="300"><p>
+
+    <form action="{{url_for('clust.clusterpred')}}" method="post">
+        생성할 그룹의 갯수<p><input type="text" class="in1" name="clusters"><p>
+
+        제목<p><input type="text" class="in1" name="data6"><p>
+        평균기온 <p><input type="text" class="in1" placeholder="평균기온" name="data4" disabled><p>
+        함계 강수량<p><input type="text" class="in1" placeholder="합계 강수량" name="data5" disabled><p>
+        범례 <p><input type="text" class="in1" placeholder="평균기온/합계강수량" name="data6" disabled><p>
+        색상<p>
+        <input type="radio" name="red">red
+        <input type="radio" name="blue">blue
+        <input type="radio" name="green">green<p>
+        <input type="submit" class="in2" value="입력"><p>
+
+        <img src="{{ url_for('static', filename='img/scaling.png')}}" class="img" alt="그래프" width="" height=""><p>
+
+        <img src="{{ url_for('static', filename='img/cluster_result.png')}}" class="img" alt="그래프" width="" height=""><p>
+    </form>
+
+
+</fieldset>
+
+<!--  AI 챗봇  -->
+<div class="container">
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png"
+                         alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">AI Chat service</h4>
+{#                    <p class="chatbox__description--header">Hi. My name is Sam. How can I help you?</p>#}
+                    <p class="chatbox__description--header">안녕. 나는 연수AI입니다. 무엇을 도와드릴까요?</p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="메세지를 입력하세요">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}"/></button>
+        </div>
+    </div>
+</div>
+<script>
+    $SCRIPT_ROOT = {{request.script_root|tojson }};
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+<!--  AI 챗봇  -->
+
+</body>
+</html>

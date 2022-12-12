@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>분류 이론</title>
+    <style>
+        h1{
+            font-size: 48px;
+        }
+
+        hr{
+        background-color: mediumpurple;
+        height: 5px;
+        }
+
+        .b{
+            width: 100px;
+            height: 50px;
+            box-sizing: border-box;
+            margin-bottom:16px;
+            border-radius: 6px;
+            color:white;
+            background-color: mediumpurple;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align: center">
+    <h1>분류</h1>
+    <hr>
+
+    <h2>결정트리 모델</h2>
+    데이터에 내재되어 있는 패턴을 변수의 조합으로 나타내는 예측/분류 모델을 나무의 형태로 만드는 것<p>
+    Tree를 만들기 위해 예/아니오 질문을 반복하여 좁혀나간다. ex) 아키네이터, 스무고개<p>
+    <img src="/app/static/img/tree.png" width="400" height="250"><p>
+    노드 생성을 미리 중단하는 사전 가지치기와 트리를 만든 후에
+    크기가 작은 노드를 삭제하는 가지치기를 통해 트리의 최대 깊이나 리프 노드의 최대 개수를 제어함으로써 모델의 정확과 적합도를 조절한다.
+    <hr>
+    <h2>결정트리 모델 개요</h2>
+    <img src="/app/static/img/tree1.png" width="600" height="250">
+    <hr>
+    <h2>이진 분할</h2>
+    <img src="/app/static/img/tree2.png" width="600" height="400"><p>
+
+    <form action="{{ url_for('clsf.classify') }}" method="post" target="_view">
+        <button type="submit" class="b">모델 구동</button>
+    </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>분류 결과</title>
+    <style>
+    h1{
+        color: mediumpurple;
+        font-size: 48px;
+        text-align: center;
+    }
+    body{
+        color: mediumpurple;
+         font-size: 24px;
+    }
+    h5{
+        text-align: center;
+    }
+
+</style>
+</head>
+<body>
+<<h1>- 분류 -</h1>
+<hr style="border: solid 10px mediumpurple">
+
+    <h3>트리 최대 깊이 : {{ m_deep }} </h3>
+    <h3>트리 깊이 설정 : {{ dept }} </h3>
+    <h3>분류 정확도 : {{ score }} </h3>
+    <p>
+    <img src="{{ url_for('static', filename='img/scorebydept.png') }}">
+    <p>
+    예측값 : {{ data }}
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <title>분류</title>
+    <style>
+    h1 {
+    color : mediumpurple;
+    font-size : 48px;
+    text-align: center;
+    }
+    body{
+    color:mediumpurple;
+    font-size:20px;
+    }
+    .in1{
+    width: 200px;
+    height: 48px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom:16px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+    font-size: 20px;
+    }
+    .in2{
+    width: 50px;
+    height: 48px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom:16px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+    color:white;
+    background-color: mediumpurple;
+    }
+    .action_area div {
+            display: inline-block;
+            width: 20%;
+            padding: 5px;
+        text-align: center;
+        {#border: 1px solid;#}
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div class="action_area">
+    <fieldset style="text-align: center; border: 0px;">
+<h1>- 분류 -</h1>
+<hr style="border: solid 10px mediumpurple">
+    <form action="{{url_for('clsf.classifypred')}}" method="post">
+        <h3> 트리의 최대 깊이 </h3>
+        {{ m_deep }}
+
+    <!-- <h3>분류 정확도</h3>
+        <input type="text" name="accuracy" class="in1"><p> 입력되는 값 -->
+
+        <h3>트리의 깊이 설정</h3>
+        <input type="text" name="max_depth" class="in1"><p> <!-- 입력받는 값-->
+
+      <h2 style="text-align: center">신체 데이터</h2>
+
+      <div>
+            <h4>성별</h4>
+            <input type="radio" value="1" name="gender"> 남자
+            <input type="radio" value="2" name="gender"> 여자
+      </div >
+      <div>
+          <h4>나이</h4>
+          <p><input type="number" name="age" value="{{ age }}" min="0" max="100" class="in1">세</p>
+      </div>
+      <div>
+          <H4>키</H4>
+          <p><input type="number" name="height" value="{{ height }}" min="100" max="200" step="1" class="in1" readonly="readonly">cm </p>
+      </div>
+      <div>
+          <h4>몸무게</h4>
+          <p><input type="number" name="weight" value="{{ weight }}" min="30" max="100" class="in1" readonly="readonly">kg </p> <!--나이 키 몸무게 타입 고민 -->
+      </div>
+      <div>
+          <h4>가족비만내력</h4>
+          <select name="fat" class="in1">
+              <option value="0"> 없다</option>
+              <option value="1"> 있다</option>
+          </select>
+      </div>
+      <div>
+          <h4>고열량음식섭취빈도</h4>
+          <select name="fastfood" class="in1">
+              <option value="0"> 주 1~2회 이상</option> <!-- 설명 생각 -->
+              <option value="1"> 월 3회 이하</option>
+          </select>
+      </div>
+      <div>
+          <h4>야채섭취빈도</h4>
+          <select name="vege" class="in1">
+              <option value="1"> 하루 1회 이상</option>
+              <option value="2"> 하루 4회 이상</option>
+              <option value="3"> 하루 7회 이상</option>
+          </select>
+      </div>
+      <div>
+          <h4>하루식사횟수</h4>
+          <p><input type="number" name="meal" min="1" max="4" class="in1">번 </p>
+      </div>
+      <div>
+          <h4>간식섭취빈도</h4>
+          <p><input type="number" name="snack" min="1" max="4" class="in1">번 </p>
+      </div>
+      <div>
+          <h4>흡연여부</h4>
+          <select name="smoke" class="in1">
+              <option value="1"> 흡연자</option>
+              <option value="0"> 비흡연자</option>
+          </select>
+      </div>
+      <div>
+          <h4>하루마시는물의양(L)</h4>
+          <p><input type="number" name="water" min="1" max="3" class="in1">L </p>
+      </div>
+      <div>
+          <h4>섭취열량파악여부</h4>
+          <select name="calory" class="in1">
+              <option value="1"> 섭취 열량 안다</option> <!--설명 고민-->
+              <option value="0"> 섭취 열량 모른다</option>
+          </select>
+      </div>
+      <div>
+          <h4>신체활동빈도</h4>
+          <select name="activity" class="in1">
+              <option value="0"> 안함</option> <!-- 아예안하는것도 그렇고, 년도 좀 -->
+              <option value="1"> 월 1회 이상</option>
+              <option value="2"> 주 1회 이상 </option>
+              <option value="3"> 주 3회 이상</option>
+          </select>
+      </div>
+      <div>
+          <h4>전자기기사용빈도</h4>
+          <select name="smartphone" class="in1">
+              <option value="0"> 하루 0~2시간</option>
+              <option value="1"> 하루 2~4시간</option>
+              <option value="2"> 매일 4~6시간 이상</option>
+          </select>
+      </div>
+      <div>
+          <h4>음주빈도</h4>
+          <select name="drink" class="in1">
+              <option value="1"> 월 1회 이상</option>
+              <option value="2"> 월 3회 이상 </option>
+              <option value="3"> 주 2회 이상</option>
+              <option value="4"> 주 5회 이상</option>
+          </select>
+        </div>
+      <div>
+          <h4>교통수단이용정보</h4>
+          <select name="transport" class="in1">
+              <option value="100">대중교통</option>
+              <option value="200">도보</option>
+              <option value="300">자차</option>
+              <option value="400">오토바이</option>
+              <option value="500">자전거</option>
+          </select>
+      </div> <p>
+      <div>
+      <input type="submit" class="in2" value="입력">
+  </div><p>
+      <div>
+      <h3>신체상태</h3>
+      <input type="text" class="in1" name="pred">
+  </div>
+    </form>
+</fieldset>
+</div>
+
+<a href="Classifypred.html">활용</a>
+
+
+
+<!-- AI 챗봇 -->
+<div class="container">
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png"
+                         alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">AI Chat service</h4>
+{#                    <p class="chatbox__description--header">Hi. My name is Sam. How can I help you?</p>#}
+                    <p class="chatbox__description--header">안녕. 나는 연수AI입니다. 무엇을 도와드릴까요?</p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="메세지를 입력하세요">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}"/></button>
+        </div>
+    </div>
+</div>
+<script>
+    $SCRIPT_ROOT = {{request.script_root|tojson }};
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+<!-- AI 챗봇 -->
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body style="text-align: center; font-family: Arial, serif; font-size: 14pt">
+<script type = "text/javascript">
+    $(document).ready(function(){
+        const socket = io.connect("https://2def-1-219-128-80.jp.ngrok.io")
+        socket.on('connect', function(){
+            socket.send("User connected!");
+        });
+
+        socket.on('message', function(data){
+            $('.message').append($('<p>').text(data));
+        });
+
+        $('#sendBtn').on('click', function(){
+            socket.send($('#username').val() + ': ' + $('#message').val());
+            $('#message').val('');
+        });
+    })
+</script>
+<div class = "message" style="margin: 0 auto; width: 60%; text-align: left; min-height: 300px">
+
+</div>
+<input type = "text" id = "username" placeholder="Username" required>
+<input type = "text" id = "message" placeholder="Message" required>
+<button id="sendBtn">Send</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--    <head>-->
+<!--        <title>Flask-Simple-Chat</title>-->
+<!--    </head>-->
+<!--    <body>-->
+<!--        <h1>Flask-Simple-Chat</h1>-->
+<!--        <h3>edited by IML</h3>-->
+<!--        - 입장하기 위해 닉네임, 방이름을 입력해주세요. <br>-->
+<!--        - 이미 해당 방이 세션에 존재할 경우, 그 곳으로 입장하며, 없을 경우 새로 생성합니다. <br>-->
+<!--        <form action = "http://localhost:9190" method = "POST">-->
+<!--         <p>닉네임 <input type = "text" name = "name" /></p>-->
+<!--         <p>방이름 <input type = "text" name = "room" /></p>-->
+<!--         <p><input type = "submit" value = "입장하기" /></p>-->
+<!--      </form>-->
+
+<!--    </body>-->
+<!--</html>-->

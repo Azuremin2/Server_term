@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>뷰</title>
+    <style>
+        h1{
+
+            font-size: 48px;
+
+        }
+        h5 {
+            font-weight: normal;
+        }
+
+        hr{
+        background-color: mediumpurple;
+        height: 5px;
+        }
+        .b{
+            width: 100px;
+            height: 50px;
+            box-sizing: border-box;
+            margin-bottom:16px;
+            border-radius: 6px;
+            color:white;
+            background-color: mediumpurple;
+        }
+    </style>
+</head>
+<body>
+
+<div style="text-align: center">
+
+    <h1>머신러닝 이론</h1>
+    <hr>
+    <h2>- 머신러닝 vs 일반프로그래밍 -</h2> <p>
+    <img src="/app/static/img/xy.png" width="300" height="150"><p>
+    기존의 프로그래밍은 정해진 논리(프로그램)에 따라 데이터를 입력해서 답을 구한다.<p>
+    머신러닝(ML)은 데이터와 답을 입력해서 데이터 속의 규칙을 찾는데 이 규칙은 다른 데이터에도 적용,  결국, 미지의 일을 예측하기 위해서는 기존 프로그래밍 방식이 아니라 머신 러닝 방식을 사용<p>
+    <img src="/app/static/img/mrth1.png" width="400" height="300">
+    <hr>
+    <h2>- 머신러닝은 지도학습, 비지도학습, 강화학습으로 나뉨 -</h2><p>
+    <img src="/app/static/img/mrth2.png" width="700" height="300"><p>
+
+    <h3>지도학습</h3><p>
+
+    데이터에 대한 Label(명시적인 답)이 주어진 상태에서 컴퓨터를 학습시키는 방법.
+    분류(Classification)와 회귀로 나뉘어진다.<p>
+    <h3>비지도학습</h3><p>
+    데이터에 대한 Label(명시적인 답)이 없는 상태에서 컴퓨터를 학습시키는 방법으로, 데이터의 숨겨진 특징, 구조, 패턴을 파악하는데 사용
+    데이터를 비슷한 특성끼리 묶는 클러스터링(Clustering)과 차원축소(Dimensionality Reduction)등이 있다.<p>
+    <h3>강화 학습</h3><p>
+    보상시스템으로 학습하고, 의사결정을 위한 최적의 액션 선택이다.<hr>
+    <h2>머신러닝의 순서</h2>
+    <img src="/app/static/img/mrpipe.png" width="600" height="500"><p>
+    <hr style="background-color: black; height: 5px">
+    <button type="button" class="b" onclick="location.href='regT.html'">회귀 알고리즘</button>
+    <button type="button" class="b" onclick="location.href='classiT.html'">분류 알고리즘</button>
+    <button type="button" class="b" onclick="location.href='clusT.html'">군집 알고리즘</button>
+</div>
+
+
+
+<div class="container">
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png"
+                         alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">AI Chat service</h4>
+                    {#<p class="chatbox__description--header">Hi. My name is Sam. How can I help you?</p>#}
+                    <p class="chatbox__description--header">안녕. 나는 연수AI입니다. 무엇을 도와드릴까요?</p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                {#<input type="text" placeholder="Write a message...">#}
+                <input type="text" placeholder="메세지를 입력하세요">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}"/></button>
+        </div>
+    </div>
+</div>
+
+<script>
+    $SCRIPT_ROOT = {{ request.script_root|tojson }};
+</script>
+
+<script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+
+
+</body>
+</html>

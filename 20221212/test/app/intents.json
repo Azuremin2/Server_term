@@ -1,0 +1,122 @@
+{
+  "intents": [
+    {
+      "tag": "regression",
+      "patterns": [
+        "what is linear regression in machine learning",
+        "what is linear regression?",
+        "linear regression",
+        "regression",
+        "Do you know what linear regression is?",
+        "Do you know linear regression?",
+        "I want to know what linear regression is"
+      ],
+      "responses": [
+        "Linear regression attempts to model the relationship between two variables by fitting a linear equation to observed data.",
+        "Linear Regression is a simple and powerful model for predicting a numeric response from a set of one or more independent variables.",
+        "Linear Regression is a machine learning algorithm based on supervised learning.",
+        "An algorithm that provides a linear relationship between an independent variable and a dependent variable to predict the outcome of future events.",
+        "The regression model outputs continuous values as predictions."
+      ]
+    },
+    {
+      "tag": "classification",
+      "patterns": [
+        "what is classifier in machine learning",
+        "what is classification",
+        "Do you know what classification is?",
+        "Do you know classification?",
+        "I want to know what classification is",
+        "classification",
+        "classifier"
+      ],
+      "responses": [
+        "Algorithm that produces class labels as output, from a set of features of an object.",
+        "A type of machine learning program that segments a set of cases into different classes or categorizations.",
+        "An algorithm that automatically orders or categorizes data into one or more of a set of “classes.”",
+        "Classification predictive modeling is the task of approximating a mapping function (f) from input variables (X) to discrete output variables (y).",
+        "Classification is the process of predicting the class of given data points."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": [
+        "Thanks",
+        "Thank you",
+        "That's helpful",
+        "Thank's a lot!"
+      ],
+      "responses": [
+        "Happy to help!",
+        "Any time!",
+        "My pleasure"
+      ]
+    },
+    {
+      "tag": "clustering",
+      "patterns": [
+        "I want to know what clustering is",
+        "Do you know what clustering is?",
+        "cluster",
+        "what is clustering in machine learning",
+        "what is cluster algorithms?",
+        "clustering"
+      ],
+      "responses": [
+        "Cluster analysis is the grouping of objects such that objects in the same cluster are more similar to each other than they are to objects in another cluster.",
+        "Cluster analysis has  wide applicability, including in unsupervised machine learning, data mining, statistics, Graph Analytics,  image processing, and numerous physical and social science applications.",
+        "Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group are more similar to each other than to those in other groups.",
+        "Generally, it is used as a process to find meaningful structure, explanatory underlying processes, generative features, and groupings inherent in a set of examples.",
+        "An unsupervised learning method is a method in which we draw references from datasets consisting of input data without labeled responses."
+      ]
+    },
+    {
+      "tag": "computer vision",
+      "patterns": [
+        "what is AI computer vision?",
+        "what is computer vision?",
+        "computer vision",
+        "I want to know computer vision is",
+        "Do you know computer vision?"
+      ],
+      "responses": [
+        "Computer vision uses artificial intelligence to enable computers to obtain meaningful data from visual inputs.",
+        "Using digital images from cameras and videos and deep learning models, machines can accurately identify and classify objects — and then react to what they see.",
+        "Computer vision is a field of artificial intelligence (AI) that enables computers and systems to derive meaningful information from digital images, videos and other visual inputs — and take actions or make recommendations based on that information.",
+        "Computer vision is an interdisciplinary scientific field that deals with how computers can gain high-level understanding from digital images or videos."
+      ]
+    },
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Good day",
+        "Hello",
+        "Is anyone there?",
+        "Hi",
+        "Hey",
+        "How are you"
+      ],
+      "responses": [
+        "Hi there, how can I help you?",
+        "Hi there, what can I do for you?",
+        "Hey :)",
+        "Hello, thanks for visiting"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "bye bye",
+        "Bye",
+        "See you later",
+        "Goodbye"
+      ],
+      "responses": [
+        "See you later. Bye!",
+        "Bye! Come back again soon.",
+        "See you later, thanks for visiting",
+        "Have a nice day"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+       *{
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+    h1{
+    font-size: 34px;
+    color: mediumpurple;
+    margin-bottom: 20px;
+}
+    body{
+    font-size: 24px;
+    color: mediumpurple;
+    margin-bottom: 20px;
+}
+    #div2{
+        position: absolute;
+        top: 50%;
+    left: 50%;
+    margin: -250px 0px 0px -300px;
+    width: 500px;
+    height: 350px;
+    padding: 40px;
+    box-sizing: border-box;
+    text-align: center;
+}
+#input1{
+    width: 100%;
+    height: 48px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    background-color: #F8F8F8;
+}
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>회원정보수정</title>
+</head>
+<body>
+<div id="div2">
+<h1>회원정보수정</h1>
+<form action="{{ url_for('user.change') }}" method="post">
+    NAME<input type="text" name="_name" id="input1" placeholder="NAME"><p>
+    ID<input type="text" name="_id" id="input1" placeholder="ID"><p>
+    PW<input type="password" name="_pw" id="input1" placeholder="PW"><p>
+    나이<input type="number" name="_age" id="input1" placeholder="나이" min="0" max="100" class="in1"><p>
+    키(cm)<input type="number" name="_height" id="input1" placeholder="키" min="100" max="200" step="1" class="in1"><p>
+    몸무게(kg)<input type="number" name="_weight" id="input1" placeholder="몸무게" min="30" max="100" class="in1"><p>
+    <button type="submit">수정</button>
+</form>
+    </div>
+</body>
+</html>

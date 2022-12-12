@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    button{
+        border: 1px solid mediumpurple;
+        background-color: rgba(0,0,0,0);
+        color: mediumpurple;
+        padding: 5px;
+        font-size: 30px;
+        width: 240px;
+    }
+    #yeonsu{
+        color: red;
+        background-color: rgba(0,0,0,0);
+        border: 1px solid red;
+        width: 120px;
+        padding: 5px;
+        font-size: 15px;
+    }
+    .b{
+            width: 100px;
+            height: 50px;
+            box-sizing: border-box;
+            margin-bottom:16px;
+            border-radius: 6px;
+            color:white;
+            background-color: mediumpurple;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>메뉴</title>
+</head>
+
+<body>
+<img src="{{ url_for('static', filename='/img/title.png')}}" width="240px" height="120px">
+<div style="text-align: center" >
+    <hr style="border: solid 1px mediumpurple" >
+
+    <p>{{ session['name'] }} 님 환영합니다.</p>
+
+    <form action="{{ url_for('user.change_temp') }}"  method="POST" target="_view">
+        <button type="submit" >회원정보 수정</button><p>
+    </form>
+
+    <form action="{{ url_for('main.log_out') }}"  method="POST" target="Login.html">
+        <button type="submit" >로그아웃</button><p>
+    </form>
+
+    <hr style="border: solid 1px mediumpurple" >
+</div>
+
+    <form action="{{ url_for('main.view') }}" method="POST" target="_view">
+        <button type="submit">머신러닝 이론</button><p>
+    </form>
+
+    <form action="{{ url_for('reg.reginfo') }}" method="POST" target="_view">
+        <button type="submit">회귀모델</button><p>
+    </form>
+
+    <form action="{{ url_for('clsf.classifyinfo') }}" method="POST" target="_view">
+        <button type="submit">분류모델</button><p>
+    </form>
+
+    <form action="{{ url_for('clust.clusterinfo') }}" method="POST" target="_view">
+        <button type="submit">군집모델</button><p>
+    </form>
+
+
+    <button type="submit">opencv</button><p>
+
+
+    <form action="{{ url_for('chat') }}" method="POST" target="_view">
+        <button type="submit">Web chatting</button><p>
+    </form>
+
+
+
+
+
+
+</body>
+</html>

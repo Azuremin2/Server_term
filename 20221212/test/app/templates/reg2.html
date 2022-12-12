@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style>
+    h1 {
+        color: mediumpurple;
+        font-size: 48px;
+        text-align: center;
+    }
+
+    body {
+        color: mediumpurple;
+        font-size: 24px;
+    }
+
+    .in1 {
+        width: 200px;
+        height: 48px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        margin-bottom: 16px;
+        border-radius: 6px;
+        background-color: #F8F8F8;
+    }
+
+    .in2 {
+        width: 50px;
+        height: 48px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        margin-bottom: 16px;
+        border-radius: 6px;
+        background-color: #F8F8F8;
+        color: white;
+        background-color: mediumpurple;
+    }
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>단순선형회귀</title>
+</head>
+<body>
+<h1>- 회귀 -</h1>
+<hr style="border: solid 10px mediumpurple">
+<form action="{{ url_for('reg.reg2pred') }}" method="post">
+
+    <h3>데이터 종류 선택</h3>
+    <select name="xdata1">
+        <option value="시가"> 시가</option>
+        <option value="고가"> 고가</option>
+        <option value="저가"> 저가</option>
+    </select>
+    입력 : <input type="text" name="input1" class="in1">
+    <p>
+    <select name="xdata2">
+        <option value="시가"> 시가</option>
+        <option value="고가"> 고가</option>
+        <option value="저가"> 저가</option>
+    </select>
+    입력 : <input type="text" name="input2" class="in1">
+    <p>
+    <input type="submit" value="입력" class="in2">
+    <p>
+{#    다변량 회귀식 : {{ fomula }}#}
+{#    <p>#}
+    다중선형회귀 평가점수 : {{ score }}
+    <p>
+    <img src="{{ url_for('static', filename='img/reg2pred.png') }}"><p>
+    <p>
+    예측값 : {{ pred }}
+
+
+{#    Color#}
+{#    <input type="radio" name="_color" value="red"> 빨강#}
+{#    <input type="radio" name="_color" value="blue"> 파랑#}
+{#    <input type="radio" name="_color" value="yellow"> 노랑#}
+{#    <input type="radio" name="_color" value="green"> 초록#}
+{#    <p>#}
+{##}
+{#     title : <input type="text" name="title" class="in1">#}
+{#     xlabel : <input type="text" name="xlabel" class="in1">#}
+{#     ylabel : <input type="text" name="ylabel" class="in1">#}
+{#     label : <input type="text" name="label" class="in1">#}
+{#        학습 데이터와 테스트 데이터를 분리하는 정도(0~1) : <input type="text" name="_separation" class="in1">#}
+</form>
+
+<!-- AI 챗봇 -->
+<div class="container">
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png"
+                         alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">AI Chat service</h4>
+                    {#                    <p class="chatbox__description--header">Hi. My name is Sam. How can I help you?</p>#}
+                    <p class="chatbox__description--header">안녕. 나는 연수AI입니다. 무엇을 도와드릴까요?</p>
+                </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="메세지를 입력하세요">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}"/></button>
+        </div>
+    </div>
+</div>
+<script>
+    $SCRIPT_ROOT = {{request.script_root|tojson }};
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+<!-- AI 챗봇 -->
+
+</body>
+</html>
